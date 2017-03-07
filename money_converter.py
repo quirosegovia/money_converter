@@ -11,13 +11,14 @@ preparedata = BeautifulSoup(rates)
 
 
 rates=preparedata.p.string
-ratedictionary=yaml.load(rates) #removing tags and transform it from string to a dictionary
+ratedictionary=yaml.load(rates) #removing tags and transform into a dictionary
 rates=ratedictionary['rates'] #extracting just the money rates
 rates['EUR']=1 #add the EUR to the list
 
 #money converter function
 
 def money_converter(amount,input,output=True):
+    """function which convert an amount of money of a currency into another/s currency/es"""
     if input == 'EUR' and output!=True:
         conversion= amount*rates.get(output)
         return conversion
@@ -38,6 +39,7 @@ def money_converter(amount,input,output=True):
     
 dictionary = {'EUR':'€', 'USD':'$','CAD':'$'} #example of dictionary with similar symbols
 def currency_symbols(symbol):
+    """function which check the existence of repeated currency symbols"""
     if symbol in dictionary:
         return symbol
 
