@@ -52,3 +52,5 @@ def currency_symbols(symbol):
         return new_symbol
     elif count > 1:
         return 'Error: Introduced symbol is the same for several money currencies. Please use the international 3-letters name of the currency'
+    
+    
